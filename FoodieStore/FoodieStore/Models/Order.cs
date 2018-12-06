@@ -12,6 +12,7 @@ namespace FoodieStore.Models
         public DateTime OrderDate { get; set; }
         public string OrderState { get; set; }
 
+        public User User { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

@@ -24,6 +24,40 @@ namespace FoodieStore
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<User>()
+                .ToTable("Users")
+                .HasKey(i => i.UserId)
+                .HasMany<Order>(o => o.Orders);
+
+            modelBuilder.Entity<Order>()
+                .ToTable("Orders")
+                .HasKey(i => i.OrderId);
+
+            modelBuilder.Entity<Product>()
+                .ToTable("Products")
+                .HasKey(i => i.ProductId);
+
+            modelBuilder.Entity<Role>()
+                .ToTable("Roles")
+                .HasKey(i => i.RoleId)
+                .HasMany<User>(u => u.Users);
+
+            modelBuilder.Entity<Category>()
+                .ToTable("Categories")
+                .HasKey(i => i.CategoryId)
+                .HasMany<Product>(p => p.Products);
+
+            modelBuilder.Entity<Order>()
+                .HasMany(e => e.OrderDetails)
+                .WithRequired(e => e.Order)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Product>()
+                .HasMany(e => e.OrderDetails)
+                .WithRequired(e => e.Product)
+                .WillCascadeOnDelete(false);
+
         }
 
     }

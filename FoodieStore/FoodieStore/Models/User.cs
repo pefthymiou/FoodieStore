@@ -18,6 +18,8 @@ namespace FoodieStore.Models
         public string PostalCode { get; set; }
         public string Phone { get; set; }
 
-        public virtual ICollection<Role> Roles { get; set; }
+        public Role Role { get; set; }
+
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }
