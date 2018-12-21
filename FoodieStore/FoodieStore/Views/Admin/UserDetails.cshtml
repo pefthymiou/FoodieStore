@@ -1,0 +1,81 @@
+﻿@model FoodieStore.Models.User
+
+@{
+    ViewBag.Title = "UserDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>User Details</h2>
+
+<div class="col-12 col-md-8 table-responsive">
+    <div class="table-wrapper-scroll">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UserId)
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Username)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Firstname)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Lastname)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <td>
+                        @Html.DisplayNameFor(model => model.Phone)
+                    </td>
+                    <td>
+                        @Html.DisplayNameFor(model => model.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayNameFor(model => model.City)
+                    </td>
+                    <td>
+                        @Html.DisplayNameFor(model => model.PostalCode)
+                    </td>
+                </tr>
+            </thead>
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.UserId)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Role.Rolename)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Firstname)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Lastname)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.PostalCode)
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

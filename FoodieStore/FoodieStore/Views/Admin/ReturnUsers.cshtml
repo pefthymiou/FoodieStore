@@ -1,0 +1,53 @@
+﻿@model IEnumerable<FoodieStore.Models.User>
+@{
+    Layout = null;
+}
+
+<table class="table">
+    <tbody>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Firstname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lastname)
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lastname)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditUser", new { id = item.UserId }) |
+                @Html.ActionLink("Details", "UserDetails", new { id = item.UserId }) |
+                @Html.ActionLink("Change Role","ChangeRole", new { id = item.UserId}) | 
+                @if (item.RoleId == 2)
+                {
+                    @Html.ActionLink("Ban", "Ban", new { id = item.UserId })
+                }
+                @if (item.RoleId == 3)
+                {
+                    @Html.ActionLink("LiftBan", "LiftBan", new { id = item.UserId })
+                }
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

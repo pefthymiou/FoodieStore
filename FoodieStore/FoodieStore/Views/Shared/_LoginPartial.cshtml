@@ -1,0 +1,24 @@
+﻿@*@{
+    var id = (int)Session["UserId"];
+}*@
+@if (User.Identity.IsAuthenticated)
+{
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Προφίλ</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="@Url.Action("CustOrders", "Home")?name=@User.Identity.Name">Οι παραγγελίες μου</a>
+            <a class="dropdown-item" href="@Url.Action("EditAccount", "Home")?name=@User.Identity.Name">Επεξεργασία Λογαριασμού</a>
+            <a class="dropdown-item" href="@Url.Action("Index","ShoppingCart")">Καλάθι Αγορών</a>
+            <h6 class="user-h6">Γεια σου <span>@User.Identity.Name</span></h6>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="@Url.Action("Logout", "Auth")">Αποσύνδεση</a>
+    </li>
+}
+else
+{
+    <li class="nav-item">
+        <a class="nav-link" href="javascript:loadLogin()">Είσοδος</a>
+    </li>
+}

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<FoodieStore.Models.Order>
+
+@{
+    ViewBag.Title = "OrderDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-8 col-md-6 col-lg-4 table-responsive">
+    <table class="table table-responsive">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderState)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderState)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.OrderId }) |*@
+                    @Html.ActionLink("Read Order", "ReadOrderChange", new { id = item.OrderId }) |
+                    @*@Html.ActionLink("Delete", "Delete", new { id = item.OrderId }) |*@
+                    @Html.ActionLink("Change State", "ChangeState", new { id = item.OrderId })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+@*<script>
+    function() {
+        $('.readOrder').click(function () {
+        $.ajax({
+            url: "Order/ReadOrder",
+            type: "post"
+            });
+        });
+    }
+</script>*@

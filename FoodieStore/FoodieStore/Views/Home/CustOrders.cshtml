@@ -1,0 +1,57 @@
+﻿@model IEnumerable<FoodieStore.Models.OrdersJoin>
+
+@{
+    ViewBag.Title = "CustOrders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var UserId = (string)Session["UserName"];
+}
+
+
+<div class="container orders-page">
+    <span>
+        <a href="@Url.Action("ExportToExcel","Pdf")?name=@UserId" title="Download to Xls format">
+            <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
+        </a>
+    </span>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.State)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quantity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductPrice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProductName)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.State)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductName)
+                    </td>
+                </tr>
+            }
+
+        </table>
+</div>

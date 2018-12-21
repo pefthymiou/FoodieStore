@@ -1,0 +1,91 @@
+﻿@model FoodieStore.Models.User
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Foodie-Registration Form";
+}
+
+<!-- ****** About Us Area Start ****** -->
+<section class="caviar-about-us-area register-page" id="about">
+
+    @{
+        var data = ViewData["Success"];
+        var exist = ViewData["UserExist"];
+        var invalidPass = ViewData["InvalidPass"];
+    }
+    <div class="register-bgImage"></div>
+    @if (data != null)
+    {
+        <p class="success">Ο Λογαρισμός σας δημιουργήθηκε επιτυχώς!</p>
+    }
+    @if (exist != null)
+    {
+        <p class="username-error">Το username υπάρχει ήδη!</p>
+    }
+    @if (invalidPass != null)
+    {
+        <p class="username-error">Το password δεν είναι έγκυρο. Πρέπει να περιέχει (5-15 χαρακτήρες, 2 μικρά γράμματα, έναν αριθμό και ένα σύμβολο(!#$ κτλ.)</p>
+    }
+    <div id="account-main" class="col-md-12">
+
+        <fieldset>
+            <legend>Εγγραφή</legend>
+            @using (Html.BeginForm("Register", "Auth"))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label for="Username">Username</label>
+                        <input type="text" class="form-control input-focus" id="username" name="username" />
+                        @Html.ValidationMessageFor(m => m.Username, "", new { @class = "error" })
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="FirstName">Όνομα</label>
+                        <input type="text" class="form-control input-focus" id="firstname" name="firstname" />
+                        @Html.ValidationMessageFor(m => m.Firstname, "", new { @class = "error" })
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="Password">Password</label>
+                        <input type="password" class="form-control input-focus" id="password" name="password" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label for="LastName">Επώνυμο</label>
+                        <input type="text" class="form-control input-focus" id="lastname" name="lastname" />
+                        @Html.ValidationMessageFor(m => m.Lastname, "", new { @class = "error" })
+                    </div>
+                    <div class="form-group  col-md-3">
+                        <label for="Phone">Τηλέφωνο</label>
+                        <input type="text" class="form-control input-focus" id="phone" name="phone" />
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="Email">Email</label>
+                        <input type="text" class="form-control input-focus" id="email" name="email" />
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "error" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                        <label for="City">Πόλη</label>
+                        <input type="text" class="form-control input-focus" id="city" name="city" />
+                        @Html.ValidationMessageFor(m => m.City, "", new { @class = "error" })
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="Address">Διεύθυνση</label>
+                        <input type="text" class="form-control input-focus" id="address" name="address" />
+                        @Html.ValidationMessageFor(m => m.Address, "", new { @class = "error" })
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="PostalCode">Τ.Κ.</label>
+                        <input type="text" class="form-control input-focus" id="postalcode" name="postalcode" />
+                        @Html.ValidationMessageFor(m => m.PostalCode, "", new { @class = "error" })
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-danger">Δημιουργία Λογαρισμού</button>
+            }
+        </fieldset>
+    </div>
+</section>
+@Html.Partial("_ModalPartial")
+<!-- ****** About Us Area End ****** -->

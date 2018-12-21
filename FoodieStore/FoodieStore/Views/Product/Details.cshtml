@@ -1,0 +1,71 @@
+﻿@model  FoodieStore.Models.Product
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+
+}
+<h2>Product</h2>
+
+<div class="col-12 col-md-8 table-responsive">
+    <div class="table-wrapper-scroll">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Product ID
+                    </th>
+                    <th>
+                        Product
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                    <th>
+                        Category ID
+                    </th>
+                    <th>
+                        Category Name
+                    </th>
+                </tr>
+            </thead>
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.ProductId)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.ProductPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.CategoryId)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Category.CategoryName)
+                </td>
+                <td>
+                    @*<a href="javascript:editProduct(@Model.ProductId)">Edit</a> |*@
+                    @*@Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }) |
+                    @Html.ActionLink("Delete", "DeleteProduct", new { id = Model.ProductId })*@
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div id="editModal" class="modal hide" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Product</h2>
+            </div>
+            <div class="modal-body">
+            </div>
+            @*<div class="modal-footer">
+                    <button id="editButton" class="btn btn-danger" type="button">Edit</button>
+                    <button id="cancelButton" type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                </div>*@
+        </div>
+    </div>
+</div>

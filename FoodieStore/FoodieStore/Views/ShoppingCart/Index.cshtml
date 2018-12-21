@@ -1,0 +1,53 @@
+﻿@model FoodieStore.Models.ShoppingCartVM
+
+@{
+    ViewBag.Title = "Shopping Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <table id="cart" class="table table-hover table-condensed">
+        <thead>
+            <tr>
+                <div class="row">
+                    <th style="width:10%">Product</th>
+                    <th style="width:10%">Price</th>
+                    <th style="width:8%">Quantity</th>
+                    <th style="width:22%" class="text-center">Subtotal</th>
+                    <th style="width:10%"></th>
+                </div>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.CartItems)
+            {
+            <tr>
+                <td data-th="Product">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <h4 class="nomargin">@item.Product.ProductName</h4>
+                        </div>
+                    </div>
+                </td>
+                <td data-th="Price">@item.Product.ProductPrice &euro;</td>
+                <td data-th="Quantity" class="text-center">@item.Count</td>
+                <td data-th="Subtotal" class="text-center">@((item.Product.ProductPrice * item.Count)) &euro;</td>
+                <td class="actions" data-th="">
+                <a href="@Url.Action("RemoveFromCart", "ShoppingCart")?id=@item.ProductId" class="btn btn-danger">Remove</a>
+                </td>
+
+            </tr>
+            }
+        </tbody>
+            <tfoot>
+                <tr>
+                    <td><a href="#" class="btn btn-warning" onclick="@("window.location.href='" + Url.Action("Index", "Home") + "'")"><i class="fa fa-angle-left">Continue Shopping</i></a></td>
+                    <td colspan="2" class="hidden-xs"></td>
+                    <td class="hidden-xs text-center"><strong>@Model.CartTotal &euro;</strong></td>
+                    <td><a href="#" class="btn btn-success btn-block" onclick="@("window.location.href='" + Url.Action("AddressAndPayment", "Checkout") + "'")">Checkout <i class="fa fa-angle-right"></i></a></td>
+                </tr>
+            </tfoot>
+
+        </table>
+</div>
+

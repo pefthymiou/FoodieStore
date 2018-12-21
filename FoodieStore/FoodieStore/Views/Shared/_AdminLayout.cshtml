@@ -1,0 +1,203 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>@ViewBag.Title</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="~/Contents/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="~/Contents/css/mdb/mdb.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="~/Contents/css/mdb/style.css" rel="stylesheet">
+</head>
+
+<body class="grey lighten-3">
+
+    <!--Main Navigation-->
+    <header>
+
+        <!-- Navbar -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+            <div class="container-fluid">
+
+                <!-- Brand -->
+                <a class="navbar-brand waves-effect" href="@Url.Action("Dashboard","Admin")">
+                    <strong class="red-text">Foodie</strong>
+                </a>
+
+                <!-- Collapse -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Links -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <!-- Left -->
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <!--active stin class--><!--Θέλει EventHandler sto click kai na vlepw pio phrodwthse to click gia na tou valw thn timh-->
+                            <a class="nav-link waves-effect" href="@Url.Action("Dashboard","Admin")">
+                                Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link waves-effect" href="@Url.Action("Categories","Admin")">
+                                Categories
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link waves-effect" href="@Url.Action("Product","Product")/">
+                                Products
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link waves-effect" href="@Url.Action("Order","Order")/">
+                                Orders
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- Right -->
+                    <ul class="navbar-nav nav-flex-icons">
+                        <li class="logoutLink">
+                            <a href="@Url.Action("Logout","Auth")" title="Αποσύνδεση">
+                                <i class="fa fa-sign-out" aria-hidden="true" style="font-size:34px;"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="row">
+                        <div class="col-12">
+                            <a href="@Url.Action("Logout","Auth")" class="button-link">Logout</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+        <!-- Navbar -->
+        <!-- Sidebar -->
+        <div class="sidebar-fixed position-fixed">
+
+            <a class="logo-wrapper waves-effect" href="@Url.Action("Index","Home")">
+                <img src="~/Contents/img/logo/foodie_logo.jpg" class="img-fluid" alt="">
+            </a>
+
+            <ul class="list-group list-group-flush">
+                <a href="@Url.Action("Dashboard","Admin")" class="list-group-item active waves-effect">
+                    <i class="fa fa-pie-chart mr-3"></i>Dashboard
+                </a>
+                <a href="@Url.Action("Categories","Admin")" class="list-group-item list-group-item-action waves-effect">
+                    <i class="fa fa-user mr-3"></i>Category
+                </a>
+                <li class="list-unstyled list-group-item">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="list-group-item-action waves-effect">
+                        <i class="fa fa-table mr-3"></i>Products
+                    </a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="@Url.Action("Create","Product")">Add New Product</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Product","Product")">Products</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="list-unstyled list-group-item">
+                    <a href="#userSubMenu" data-toggle="collapse" aria-expanded="false" class="list-group-item-action waves-effect">
+                        <i class="fa fa-map mr-3"></i>Users
+                    </a>
+                    <ul class="collapse list-unstyled" id="userSubMenu">
+                        <li>
+                            <a href="@Url.Action("BannedUsers","Admin")">Banned Users</a>
+                        </li>
+                    </ul>
+                </li>
+                    <a href="@Url.Action("Order","Order")" class="list-group-item list-group-item-action waves-effect">
+                        <i class="fa fa-money mr-3" aria-hidden="true"></i>Orders
+                    </a>
+            </ul>
+
+        </div>
+        <!-- Sidebar -->
+
+    </header>
+    <!--Main Navigation-->
+    @RenderBody()
+
+
+    <!--Footer-->
+    <footer class="page-footer text-center font-small primary-color-dark darken-2 mt-4 wow fadeIn">
+
+
+
+        <hr class="my-4">
+
+        <!-- Social icons -->
+        <div class="pb-4">
+            <a href="#" target="_blank">
+                <i class="fa fa-facebook mr-3"></i>
+            </a>
+
+            <a href="#" target="_blank">
+                <i class="fa fa-twitter mr-3"></i>
+            </a>
+        </div>
+        <!-- Social icons -->
+        <!--Copyright-->
+        <div class="footer-copyright py-3">
+            © 2018 Copyright:
+            <a href="#" target="_blank"> MDBootstrap.com </a>
+        </div>
+        <!--/.Copyright-->
+
+    </footer>
+    <!--/.Footer-->
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="~/Contents/js/jquery/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="~/Contents/js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="~/Contents/js/bootstrap/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="~/Contents/js/mdb/mdb.min.js"></script>
+    <!-- Initializations -->
+    <script type="text/javascript">
+        // Animations initialization
+        new WOW().init();
+    </script>
+
+    <script>
+    function editProduct(id) {
+        $('.modal-body').load('@Url.Action("Edit","Product")?id='+id, function () {
+            $('#editModal').show({ show: true });
+        });
+    };
+
+        $(document).ready(function () {
+            $('#editButton').click(function () {
+                //console.log("Hello");
+                $('#editForm').submit();
+                $('#editModal').hide();
+            });
+        });
+
+        $('#cancelButton').click(function () {
+            $('#editModal').hide();
+        });
+    </script>
+</body>
+
+</html>

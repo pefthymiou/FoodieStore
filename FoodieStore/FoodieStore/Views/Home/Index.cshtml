@@ -1,0 +1,107 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Foodie-Delivery Service";
+}
+
+
+<section class="caviar-hero-area" id="home">
+    <!-- Welcome Social Info -->
+    <div class="welcome-social-info">
+        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+        <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    </div>
+    <!-- Welcome Slides -->
+    <div class="caviar-hero-slides owl-carousel">
+        <!-- Single Slides -->
+        <div class="single-hero-slides bg-img" style="background-image: url(/Contents/img/bg-img/hero-1.jpg);">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-11 col-md-6 col-lg-4">
+                        <div class="hero-content">
+                            <h2>Πείνασες; Ώρα να παραγγείλεις!</h2>
+                            <p>Μοναδικές Γαστρονομικές επιλογές καθημερινά στο σπίτι και στο γραφείο σου.</p>
+                            <a href="@Url.Action("Menu","Home")" class="btn caviar-btn"><span></span> Δες το Μενού</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slider Nav -->
+            <div class="hero-slides-nav bg-img" style="background-image: url(/Contents/img/bg-img/hero-2.jpg);"></div>
+        </div>
+        <!-- Single Slides -->
+        <div class="single-hero-slides bg-img" style="background-image: url(/Contents/img/bg-img/hero-2.jpg);">
+            <!-- Slider Nav -->
+            <div class="hero-slides-nav bg-img" style="background-image: url(/Contents/img/bg-img/hero-1.jpg);"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ****** About Us Area Start ****** -->
+<section class="caviar-about-us-area section-padding-150" id="about">
+    <div class="container">
+        <!-- About Us Single Area -->
+        <div class="row align-items-center">
+            <div class="col-12 col-md-6">
+                <div class="about-us-thumbnail wow fadeInUp" data-wow-delay="0.5s">
+                    <img src="~/Contents/img/bg-img/about-1.jpg" alt="flowers">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-5 ml-md-auto">
+                <div class="section-heading">
+                    <h2>About Us</h2>
+                </div>
+                <div class="about-us-content">
+                    <span>restaurant style</span>
+                    <p>
+                       Απο τον Απρίλιο του 2018 μας βρίσκεται στην περιοχή του Ψυρρή, με μια μεγάλη ποικιλία απο πιάτα της ώρας
+                        και διάφορα ορεκτικά.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- About Us Single Area -->
+        <div class="about-us-second-part">
+            <div class="row align-items-center pt-200">
+                <div class="col-12 col-md-6 col-lg-5">
+                    <div class="about-us-content">
+                        <span>our chef</span>
+                        <p>
+                            Όταν η γνώση, η εμπειρία και το πάθος συναντούν τους έμπειρους chefs μας, 
+                            το αποτέλεσμα δε μπορεί παρά να είναι ένα γευστικά τέλειο πιάτο. 
+                            Χρησιμοποιώντας πάντα φρέσκα, αγνά και ποιοτικά υλικά, 
+                            φροντίζουμε να απολαμβάνεις τις κλασικές συνταγές της μαμάς , 
+                            αλλά και συνταγές με άρωμα ανανέωσης που καλύπτουν και τον πιο απαιτητικό ουρανίσκο.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 ml-md-auto">
+                    <div class="about-us-thumbnail wow fadeInUp" data-wow-delay="0.5s">
+                        <img src="~/Contents/img/bg-img/about-2.jpg" alt="sef_image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ****** About Us Area End ****** -->
+<!-- ****** Dish Menu Area Start ****** -->
+<section class="caviar-dish-menu" id="menu">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 menu-heading">
+                <div class="section-heading text-center">
+                    <h2>Προτάσεις Ημέρας</h2>
+                </div>
+                <!-- btn -->
+                <a href="@Url.Action("Menu","Home")" class="btn caviar-btn"><span></span> Δες το Μενού</a>
+            </div>
+        </div>
+        <div class="row">
+            @RenderPage("DailyDishes.cshtml")
+        </div>
+    </div>
+</section>
+<!-- ****** Dish Menu Area End ****** -->
+<!-- Modal -->
+@Html.Partial("_ModalPartial")

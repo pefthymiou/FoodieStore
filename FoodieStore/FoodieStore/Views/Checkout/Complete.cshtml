@@ -1,0 +1,13 @@
+﻿@model int
+
+@{
+    ViewBag.Title = "Checkout Complete";
+}
+<div class="check-out">
+    <h2>Η παραγγελία σας καταχωρήθηκε επιτυχώς!</h2>
+    <p>Ευχαριστούμε για την παραγγελία σας.Το id της παραγγελίας σας είναι: @Model</p>
+    <p>
+        Επιθυμείται να συνεχίσετε?
+        @Html.ActionLink("store", "Index", "Home")
+    </p>
+</div>

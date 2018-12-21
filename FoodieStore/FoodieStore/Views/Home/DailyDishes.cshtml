@@ -1,0 +1,32 @@
+﻿@model IEnumerable<FoodieStore.Models.Product>
+@{
+    Layout = null;
+}
+@foreach (var item in Model)
+{
+    <div class="caviar-single-dish wow fadeInUp" data-wow-delay="0.5s">
+        <img class="cat-img" src="@item.ImagePath" alt="@item.Description">
+        <div class="dish-info">
+            <h6 class="dish-name">@item.ProductName</h6>
+            <p class="dish-price">@item.ProductPrice</p>
+        </div>
+        <div class="button-container">
+            <a class="AddLink buy-button" href="#" data-id="@item.ProductId" title="Add to Cart">Αγορά</a>
+        </div>
+    </div>
+}
+
+    <script type="text/javascript">
+    $(function () {
+            $(".AddLink").click(function () {
+                var recordToAdd = $(this).attr("data-id");
+                if (recordToAdd != '') {
+                    $.post("/ShoppingCart/AddToCart", {
+                        "id": recordToAdd
+                    },
+                        function (data) {
+                            $('#cart-status').text(data.CartCount);
+                        });
+                }
+            });
+        });</script>
